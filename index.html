@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ASL Style Apply — دمج ستايل ASL على نص/صورة</title>
+
+  <!-- خطوط -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Reem+Kufi&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>ASL Style Apply</h1>
+    <p class="subtitle">ارفع JSON الناتج من ASL أو استخدم الملف الجاهز — اضغط على أي مربع لتطبيق الـ style بدقّة براقِة</p>
+  </header>
+
+  <main class="main-grid">
+    <aside class="controls">
+      <div class="card">
+        <label class="label">رفع/تحميل JSON (مشتق من ASL)</label>
+        <input id="jsonFile" type="file" accept=".json" />
+        <button id="loadSample" class="btn">استخدم JSON الافتراضي (إن وُجد)</button>
+        <div id="jsonInfo" class="muted">لم يتم تحميل JSON</div>
+      </div>
+
+      <div class="card">
+        <label class="label">الوضع</label>
+        <label><input type="radio" name="mode" value="text" checked> نص</label>
+        <label><input type="radio" name="mode" value="image"> صورة (PNG شفاف)</label>
+      </div>
+
+      <div class="card">
+        <label class="label">نص التحرير</label>
+        <textarea id="textInput" rows="3" placeholder="اكتب النص الذي تريد تطبيق الستايل عليه...">النص التجريبي</textarea>
+
+        <label class="label">الخط</label>
+        <select id="fontSelect">
+          <option value="Cairo, sans-serif">Cairo</option>
+          <option value="'Reem Kufi', sans-serif">Reem Kufi</option>
+        </select>
+
+        <label class="label">حجم الخط (px)</label>
+        <input id="fontSize" type="number" min="20" max="420" value="140" />
+
+        <button id="applyText" class="btn">حدّث المعاينة</button>
+      </div>
+
+      <div class="card">
+        <label class="label">رفع صورة (PNG بخلفية شفافة لتلوين النص داخل الصورة)</label>
+        <input id="imageFile" type="file" accept="image/*" />
+        <button id="clearImage" class="btn ghost">مسح الصورة</button>
+      </div>
+
+      <div class="card actions">
+        <button id="downloadBtn" class="btn primary">تحميل النتيجة (PNG)</button>
+        <div id="log" class="muted">جاهز</div>
+      </div>
+    </aside>
+
+    <section class="styles-preview">
+      <div class="card">
+        <label class="label">قائمة الأنماط — اضغط لتطبيق</label>
+        <div id="stylesGrid" class="styles-grid">لم يتم تحميل أنماط</div>
+      </div>
+
+      <div class="card preview-card">
+        <label class="label">معاينة</label>
+        <div class="canvas-wrap">
+          <canvas id="previewCanvas" width="1400" height="600"></canvas>
+        </div>
+        <div class="hint">الستايل سيطبق بدقّة glossy/bevel مركّبة مقابلة لملف ASL (تقريبي واقعي).</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>ملاحظة: هذا تطبيق ويب يُحاكي تأثيرات Photoshop (Bevel/Gloss/Shadow) بناءً على ألوان JSON. للحصول على تطابق 100% يلزم تحويل تفصيلي للـ ASL إلى وصف Layer-Style كامل.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
