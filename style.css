@@ -1,0 +1,43 @@
+:root{
+  --bg: #071022;
+  --card: #0b1220;
+  --muted: #9aa4b2;
+  --accent: #4fc3ff;
+  --gold: #ffd857;
+  --radius: 12px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Cairo, system-ui, -apple-system, "Segoe UI", Roboto, Arial;background:linear-gradient(180deg,#03101b,#071022);color:#e9f2fb}
+.topbar{padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.topbar h1{margin:0;font-size:20px}
+.topbar .subtitle{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+.main-grid{display:grid;grid-template-columns:360px 1fr;gap:16px;padding:18px}
+.controls{}
+.card{background:var(--card);padding:12px;border-radius:var(--radius);margin-bottom:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 8px 24px rgba(0,0,0,0.6)}
+.label{display:block;color:var(--muted);font-size:13px;margin-bottom:8px}
+input[type="file"], select, textarea, input[type="number"]{width:100%;padding:8px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.03);color:inherit}
+textarea{resize:vertical;min-height:72px}
+.btn{padding:9px 12px;border-radius:10px;border:0;background:rgba(255,255,255,0.03);color:var(--gold);cursor:pointer;font-weight:700}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.btn.primary{background:var(--gold);color:#071022}
+
+.muted{color:var(--muted);font-size:13px}
+
+.styles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:10px}
+.style-tile{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:8px;border-radius:8px;cursor:pointer;border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;gap:8px;align-items:center}
+.thumb-canvas{width:100%;height:80px;border-radius:6px;background:#222;display:block}
+.style-name{font-size:13px;color:var(--muted);text-align:center;word-break:break-word}
+
+.preview-card .canvas-wrap{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:8px;padding:10px;display:flex;justify-content:center;align-items:center;min-height:300px}
+canvas{max-width:100%;border-radius:6px;background:transparent;box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+
+.hint{color:var(--muted);font-size:13px;margin-top:8px}
+.footer{padding:12px 18px;color:var(--muted);font-size:12px;text-align:center}
+
+/* responsive */
+@media (max-width:980px){
+  .main-grid{grid-template-columns:1fr;padding:12px}
+  .controls{order:2}
+      }
